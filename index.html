@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Seeker</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="border-bottom:2px solid black;">
+            <div class="container"><a class="navbar-brand" href="#">Battle Seeker <small>By Foobar</small></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto"></ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="newsletter-subscribe">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">See your features now!</h2>
+            </div>
+            <div class="form-inline">
+                <div class="form-group"><input id="playerTag" class="form-control" type="text" required="" placeholder="Your Tag Epic Games"></div>
+                <div class="form-group"><button onclick="searchPlayer()" class="btn btn-primary" type="submit">check</button></div>
+            </div>
+        </div>
+    </div>
+    <div id="stats-view" class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5 id="username_stats">
+                                        Player Name
+                                    </h5>
+                                    <h6>
+                                        Platform: <span id="platform_stats"></span>
+                                    </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">All-Round</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#solo" role="tab" aria-controls="profile" aria-selected="false">Solo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#duo" role="tab" aria-controls="profile" aria-selected="false">Duo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#squad" role="tab" aria-controls="profile" aria-selected="false">Squad</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hours played</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="hoursplayed_stats"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>K / D</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kd_stats"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Kills</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kills_stats"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Matches Played</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="matchsplayed_stats"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Score</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="score_stats"></p>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Winrate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="winrate_stats"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Wins</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="wins_stats"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>UID</label><br/>
+                                                <p id="uid_stats"></p>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="solo" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>K / D</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kd_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Kills</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kills_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Matches Played</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="matchesplayed_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 1</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop1_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 10</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop10_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 25</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop25_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Score</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="score_solo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Winrate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="winrate_solo"></p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="duo" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>K / D</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kd_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Kills</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kills_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Matches Played</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="matchesplayed_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 1</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop1_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 5</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop5_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 12</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop12_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Score</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="score_duo"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Winrate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="winrate_duo"></p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="squad" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>K / D</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kd_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Kills</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="kills_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Matches Played</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="matchesplayed_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 1</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop1_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 3</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop3_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>TOP 6</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="placetop6_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Score</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="score_squad"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Winrate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="winrate_squad"></p>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="found.js"></script>
+</body>
+
+</html>
