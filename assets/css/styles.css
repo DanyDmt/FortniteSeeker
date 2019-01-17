@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://i.ytimg.com/vi/kYVOIxWJLzQ/maxresdefault.jpg');
+    background-image: url('http://hdqwalls.com/wallpapers/fortnite-hd-vs.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -24,12 +24,6 @@ body {
 }
 .profile-img{
     text-align: center;
-}
-.profile-img .file input {
-    position: absolute;
-    opacity: 0;
-    right: 0;
-    top: 0;
 }
 .profile-head h5{
     color: white;
@@ -99,4 +93,18 @@ body {
 }
 #platform_stats {
     text-transform: uppercase;
+}
+
+.blog .carousel-indicators {
+    left: 0;
+    top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
 }

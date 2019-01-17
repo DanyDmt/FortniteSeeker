@@ -45,8 +45,43 @@ function searchPlayer() {
         $('#score_squad').text(response.stats.score_squad);
         $('#winrate_squad').text(response.stats.winrate_squad);
         document.getElementById("stats-view").hidden = false;
-        $('#stats-view').addClass('animated slideInDown');
+        document.getElementById("daily-shop").hidden = true;
+        $('#stats-view').addClass('animated slideInLeft');
         
     });
   });
 };
+
+$.ajax({
+  url: 'https://fortnite-public-api.theapinetwork.com/prod09/store/get',
+  dataType: 'json',
+  type: 'GET',
+}).done(function(response) {
+  // Shop Date 
+  $('#shop_date').text(response.date)
+  // Shop 
+  imageurl1 = response.items[0].item.images.information;
+  $('#image_item_0').attr('src', imageurl1);
+
+  imageurl2 = response.items[1].item.images.information;
+  $('#image_item_1').attr('src', imageurl2);
+
+  imageurl3 = response.items[2].item.images.information;
+  $('#image_item_2').attr('src', imageurl3);
+
+  imageurl4 = response.items[3].item.images.information;
+  $('#image_item_3').attr('src', imageurl4);
+
+  imageurl5 = response.items[4].item.images.information;
+  $('#image_item_4').attr('src', imageurl5);
+
+  imageurl6 = response.items[5].item.images.information;
+  $('#image_item_5').attr('src', imageurl6);
+
+  imageurl7 = response.items[6].item.images.information;
+  $('#image_item_6').attr('src', imageurl7);
+
+  imageurl8 = response.items[7].item.images.information;
+  $('#image_item_7').attr('src', imageurl8);
+  console.log(response)
+});
