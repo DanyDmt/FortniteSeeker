@@ -1,25 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
 body {
     background-image: url('http://hdqwalls.com/wallpapers/fortnite-hd-vs.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Staatliches', cursive;
 }
 .navigation-clean {
     box-shadow: 8px 8px 35px black;
-    background-color: #051B38;
+    background-color: #17022D;
     border: none !important;
 }
 .navbar-brand {
     color: white !important;
 }
+.leaderboard {
+    width: 81%;
+    height: 22px;
+    background-color: #17022D;
+    margin-top: 15px;
+    border-right: 3px solid white;
+    border-left: 3px solid white;
+}
+.leaderboard marquee {
+    color: white;
+}
 #btn-check {
-    background-color: #051B38 !important;
+    background-color: #17022D !important;
+    border-radius: 0px;
 }
 .emp-profile{
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
     border-radius: 0.0rem;
-    background: #051B38;
+    background: #17022D;
     box-shadow: 8px 8px 50px black;
 }
 .profile-img{
@@ -107,4 +121,17 @@ body {
     border-radius: 50%;
     width: 8px;
     height: 8px;
+}
+
+select {
+    height: 45px !important;
+    border-radius: 0px !important;
+    width: 10% !important;
+    background-color: #17022D !important;
+    border-radius: 0px;
+    color: white !important;
+    opacity: 0.9;
+}
+select:hover {
+    opacity: 1 !important;
 }

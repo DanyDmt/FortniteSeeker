@@ -2,9 +2,12 @@ document.getElementById("stats-view").hidden = true;
 
 function searchPlayer() {
   var tagName = document.getElementById('playerTag').value;
+  var selector = document.getElementById("selectedPlatform");
+  var platform = selector.options[selector.selectedIndex].value;
+
   $.getJSON( "https://fortnite-public-api.theapinetwork.com/prod09/users/id?username="+tagName, function(response) {
   var uid = response.uid;
-    $.getJSON( "https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?user_id="+ uid +"&platform=pc", function(response) {
+    $.getJSON( "https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?user_id="+ uid + "&platform=" + platform, function(response) {
         console.log(response);
         $('#username_stats').text(response.username);
         $('#platform_stats').text(response.platform);
@@ -46,8 +49,7 @@ function searchPlayer() {
         $('#winrate_squad').text(response.stats.winrate_squad);
         document.getElementById("stats-view").hidden = false;
         document.getElementById("daily-shop").hidden = true;
-        $('#stats-view').addClass('animated slideInLeft');
-        
+        $('#stats-view').addClass('animated slideInLeft');   
     });
   });
 };
@@ -84,4 +86,63 @@ $.ajax({
   imageurl8 = response.items[7].item.images.information;
   $('#image_item_7').attr('src', imageurl8);
   console.log(response)
+});
+
+var form = new FormData();
+form.append("window", "top_10_kills");
+
+var settings = {
+  "url": "https://fortnite-public-api.theapinetwork.com/prod09/leaderboards/get",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Authorization": "your_api_key"
+  },
+  "processData": false,
+  "mimeType": "multipart/form-data",
+  "contentType": false,
+  "data": form,
+  "dataType": 'json'
+};
+$.ajax(settings).done(function (response) {
+
+  $('#name_player_1').text(response.entries[0].username)
+  // $('#deck_player_1').text(response.entries[0].platform)
+  // $('#kill_player_1').text(response.entries[0].kills)
+
+  $('#name_player_2').text(response.entries[1].username)
+  // $('#deck_player_2').text(response.entries[1].platform)
+  // $('#kill_player_2').text(response.entries[1].kills)
+
+  $('#name_player_3').text(response.entries[2].username)
+  // $('#deck_player_3').text(response.entries[2].platform)
+  // $('#kill_player_3').text(response.entries[2].kills)
+
+  $('#name_player_4').text(response.entries[3].username)
+  // $('#deck_player_4').text(response.entries[3].platform)
+  // $('#kill_player_4').text(response.entries[3].kills)
+
+  $('#name_player_5').text(response.entries[4].username)
+  // $('#deck_player_5').text(response.entries[4].platform)
+  // $('#kill_player_5').text(response.entries[4].kills)
+
+  $('#name_player_6').text(response.entries[5].username)
+  // $('#deck_player_6').text(response.entries[5].platform)
+  // $('#kill_player_6').text(response.entries[5].kills)
+
+  $('#name_player_7').text(response.entries[6].username)
+  // $('#deck_player_7').text(response.entries[6].platform)
+  // $('#kill_player_7').text(response.entries[6].kills)
+
+  $('#name_player_8').text(response.entries[7].username)
+  // $('#deck_player_8').text(response.entries[7].platform)
+  // $('#kill_player_8').text(response.entries[7].kills)
+
+  $('#name_player_9').text(response.entries[8].username)
+  // $('#deck_player_9').text(response.entries[8].platform)
+  // $('#kill_player_9').text(response.entries[8].kills)
+
+  $('#name_player_10').text(response.entries[9].username)
+  // $('#deck_player_10').text(response.entries[9].platform)
+  // $('#kill_player_10').text(response.entries[9].kills)
 });
